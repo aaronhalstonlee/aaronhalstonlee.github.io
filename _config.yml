@@ -23,7 +23,7 @@ email: aaronhalstonlee@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Coding projects
 domain: aaronhalstonlee.github.io
-baseurl: /aaronhalstonlee.github.io/ # the subpath of your site, e.g. /blog
+baseurl:  # the subpath of your site, e.g. /blog
 url: https://aaronhalstonlee.github.io # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  aaronhalstonlee
 
