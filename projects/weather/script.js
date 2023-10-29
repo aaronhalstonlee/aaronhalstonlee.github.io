@@ -39,7 +39,7 @@ ready(() => {
                     return;
                 }
                 let data = JSON.parse(xhttp.responseText);
-                let temp = data.list[0].main.temp;
+                temp = data.list[0].main.temp;
                 let weatherDescript = data.list[0].weather[0].description;
                 let weatherIcon = data.list[0].weather[0].icon;
                 let location = document.getElementById("location");
