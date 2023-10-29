@@ -57,15 +57,14 @@ ready(() => {
     let today = document.getElementById("today");
     today.addEventListener("click", () => {
         let unit = document.getElementById("unit");
-        let temp = document.getElementById("temperature");
-        let intTemp = parseInt(document.getElementById("temperature").innerText);
-        //console.log("temp", parseInt(temp.innerText),"unit", unit.innerText);
+        let tempEl = document.getElementById("temperature");
+        
         if (unit.innerText == "°F"){
             unit.innerText = "°C";
-            temp.innerText = ((intTemp - 32)*(5/9)).toFixed(1);
+            tempEl.innerText = (temp - 273).toFixed(1);
         } else if (unit.innerText == "°C"){
             unit.innerText = "°F";
-            temp.innerText = (((9/5) *intTemp) + 32).toFixed(1);
+            tempEl.innerText = ((9/5) * (temp - 273) + 32).toFixed(1);
         };
     });
 });
