@@ -38,8 +38,15 @@ ready(() => {
                     alert("http failure, i guess... ? : " + xhttp.status);
                     return;
                 }
+                let data = JSON.parse(xhttp.responseText);
+                let temp = data.list[0].main.temp;
+                let weatherDescript = data.list[0].weather[0].description;
+                let weatherIcon = data.list[0].weather[0].icon;
+                let location = document.getElementById("location");
+                let weather = document.getElementById("weather");
 
-                console.log(xhttp.response);
+                location.innerHTML = data.city.name;
+                weather.innerHTML = `<span id="temperature">${(9/5*(temp-273)+32).toFixed(1)}</span><span id="unit">°F</span><br><img style="height: 75px;" src="https://openweathermap.org/img/w/${weatherIcon}.png"> ${weatherDescript}`;
             }
         };
         setTimeout(weatherData, 500);
@@ -51,13 +58,14 @@ ready(() => {
     today.addEventListener("click", () => {
         let unit = document.getElementById("unit");
         let temp = document.getElementById("temperature");
-
-        if (unit.innerHTML == "°F"){
-            unit.innerHTML = "°C";
-            temp.innerHTML = (temp - 273).toFixed(1);
-        } else if (unit.innerHTML == "°C"){
-            unit.innerHTML = "°F";
-            temp.innerHTML = (9/5*(temp -273) + 32).toFixed(1)
+        let intTemp = parseInt(document.getElementById("temperature").innerText);
+        //console.log("temp", parseInt(temp.innerText),"unit", unit.innerText);
+        if (unit.innerText == "°F"){
+            unit.innerText = "°C";
+            temp.innerText = ((intTemp - 32)*(5/9)).toFixed(1);
+        } else if (unit.innerText == "°C"){
+            unit.innerText = "°F";
+            temp.innerText = (((9/5) *intTemp) + 32).toFixed(1);
         };
     });
 });
