@@ -4,11 +4,11 @@ title:  "Weather App"
 date:   2023-10-29 10:23:33 -0700
 categories: 
 ---
-# What's the weather like out there?
+# Do I need a jacket?
 
-Built using the powerhouse HTML, the beautiful CSS and the titan JavaScript!
+A simple web app utilizing api calls and json parsing.
 
-[check it out][weather-app]
+[-> check it out <-][weather-app]
 
 
 
