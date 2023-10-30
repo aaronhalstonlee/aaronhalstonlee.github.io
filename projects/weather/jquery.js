@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //globals
-    var appid = "c3494159ec59eb5abb08b856c55a5830";
+    var appid = "YOUR_API_KEY";
     var lat = '', lon = '';
     var weatherURL='';
     var temp;
