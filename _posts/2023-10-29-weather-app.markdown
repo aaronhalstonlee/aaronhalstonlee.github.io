@@ -4,7 +4,7 @@ title:  "Weather App"
 date:   2023-10-29 10:23:33 -0700
 categories: 
 ---
-# Weather App
+# What's the weather like out there?
 
 Built using the powerhouse HTML, the beautiful CSS and the titan JavaScript!
 
