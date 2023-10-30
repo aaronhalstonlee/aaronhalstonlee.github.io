@@ -5,7 +5,7 @@ var ready = (callback) => {
 
 ready(() => {
     //globals
-    var appid = secret.WEATHER_API_KEY;
+    var appid = process.env.WEATHER_API_KEY;
     var lat = '', lon = '';
     var weatherURL='';
     var temp;
