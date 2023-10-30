@@ -8,8 +8,7 @@ categories:
 
 Built using the powerhouse HTML, the beautiful CSS and the titan JavaScript!
 
-## [weather app][weather-app]
-[weather app][weather-app]
+[check it out][weather-app]
 
 
 
