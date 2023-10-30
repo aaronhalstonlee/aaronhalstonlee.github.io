@@ -6,7 +6,7 @@ categories:
 ---
 #Weather App
 
-Built using HTML, CSS and the beautiful JavaScript!
+Built using the powerhouse HTML, the beautiful CSS and the titan JavaScript!
 
 ##[weather app][weather-app]
 
