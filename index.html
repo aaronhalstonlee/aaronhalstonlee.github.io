@@ -8,174 +8,213 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #0d0f14;
-    --surface: #15181f;
-    --border: #222630;
-    --accent: #4f8ef7;
-    --accent2: #7c5cfc;
-    --text: #e4e8f0;
-    --muted: #6b7280;
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --border: #e2e5ea;
+    --text: #111318;
+    --sub: #4a5060;
+    --muted: #9099a8;
+    --accent: #1a56db;
   }
 
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1rem;
+    padding: 3rem 1.5rem;
   }
 
   header {
     text-align: center;
     margin-bottom: 3rem;
+    max-width: 540px;
   }
 
   header h1 {
-    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 700;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    letter-spacing: -0.03em;
+    color: var(--text);
   }
 
   header p {
     margin-top: 0.5rem;
-    color: var(--muted);
+    color: var(--sub);
     font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .divider {
+    width: 36px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin: 1rem auto 0;
   }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
     width: 100%;
-    max-width: 900px;
+    max-width: 920px;
   }
 
   .card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 10px;
     padding: 1.5rem;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--card-a), var(--card-b));
-    opacity: 0;
-    transition: opacity 0.2s;
-    border-radius: inherit;
+    gap: 0.5rem;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
   }
 
   .card:hover {
-    border-color: var(--card-a);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-color: var(--accent);
+    transform: translateY(-2px);
   }
 
-  .card:hover::before { opacity: 0.06; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   .card-icon {
-    font-size: 2rem;
+    font-size: 1.4rem;
     line-height: 1;
   }
 
+  .card-arrow {
+    color: var(--muted);
+    font-size: 1rem;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .card:hover .card-arrow {
+    color: var(--accent);
+    transform: translateX(3px);
+  }
+
   .card-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text);
+    margin-top: 0.25rem;
   }
 
   .card-desc {
-    font-size: 0.875rem;
-    color: var(--muted);
-    line-height: 1.55;
+    font-size: 0.85rem;
+    color: var(--sub);
+    line-height: 1.6;
     flex: 1;
   }
 
-  .card-link {
-    font-size: 0.8rem;
-    color: var(--card-a);
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    margin-top: 0.25rem;
-    opacity: 0.8;
+  .card-thumb {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    display: block;
+    background: var(--bg);
   }
 
-  .card-link::after { content: '→'; }
-
-  .card:hover .card-link { opacity: 1; }
-
-  /* Per-card accent colours */
-  .card-nvh   { --card-a: #4f8ef7; --card-b: #3b6fd4; }
-  .card-coach { --card-a: #34d399; --card-b: #059669; }
-  .card-frt   { --card-a: #e879f9; --card-b: #a21caf; }
-  .card-gm    { --card-a: #f97316; --card-b: #c2410c; }
+  .card-slug {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: "SF Mono", "Fira Code", monospace;
+    margin-top: 0.5rem;
+  }
 
   footer {
     margin-top: 3rem;
     color: var(--muted);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
   }
+
+  footer span { color: var(--border); }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  footer a:hover { color: var(--accent); }
 </style>
 </head>
 <body>
 
 <header>
   <h1>Aaron Halston Lee</h1>
-  <p>A collection of web tools &amp; PWAs</p>
+  <p>Automotive diagnostics &amp; NVH tools, built as lightweight progressive web apps.</p>
+  <div class="divider"></div>
 </header>
 
 <div class="grid">
 
-  <a class="card card-nvh" href="https://aaronhalstonlee.github.io/nvh_webapp/" target="_blank" rel="noopener">
-    <div class="card-icon">📳</div>
-    <div class="card-title">NVH Analyser</div>
+  <a class="card" href="https://aaronhalstonlee.github.io/nvh_webapp/" target="_blank" rel="noopener">
+    <img class="card-thumb" src="https://image.thum.io/get/width/600/crop/400/https://aaronhalstonlee.github.io/nvh_webapp/" alt="NVH Analyser screenshot">
+    <div class="card-header">
+      <div class="card-title">NVH Analyser</div>
+      <div class="card-arrow">→</div>
+    </div>
     <div class="card-desc">Live accelerometer capture and vibration order analysis. Calculate engine, transmission, driveline, and tire frequencies in real time.</div>
-    <div class="card-link">nvh_webapp</div>
+    <div class="card-slug">/nvh_webapp/</div>
   </a>
 
-  <a class="card card-coach" href="https://aaronhalstonlee.github.io/drive-coach/" target="_blank" rel="noopener">
-    <div class="card-icon">🚗</div>
-    <div class="card-title">Driver Feedback Coach</div>
+  <a class="card" href="https://aaronhalstonlee.github.io/drive-coach/" target="_blank" rel="noopener">
+    <img class="card-thumb" src="https://image.thum.io/get/width/600/crop/400/https://aaronhalstonlee.github.io/drive-coach/" alt="Driver Feedback Coach screenshot">
+    <div class="card-header">
+      <div class="card-title">Driver Feedback Coach</div>
+      <div class="card-arrow">→</div>
+    </div>
     <div class="card-desc">Real-time driving smoothness scoring for acceleration, braking, and cornering. Session history, calibration settings, and CSV export.</div>
-    <div class="card-link">drive-coach</div>
+    <div class="card-slug">/drive-coach/</div>
   </a>
 
-  <a class="card card-frt" href="https://aaronhalstonlee.github.io/flat-rate-tracker/" target="_blank" rel="noopener">
-    <div class="card-icon">⏱️</div>
-    <div class="card-title">FRT: Flat Rate Tracker</div>
+  <a class="card" href="https://aaronhalstonlee.github.io/flat-rate-tracker/" target="_blank" rel="noopener">
+    <img class="card-thumb" src="https://image.thum.io/get/width/600/crop/400/https://aaronhalstonlee.github.io/flat-rate-tracker/" alt="Flat Rate Tracker screenshot">
+    <div class="card-header">
+      <div class="card-title">FRT: Flat Rate Tracker</div>
+      <div class="card-arrow">→</div>
+    </div>
     <div class="card-desc">Tracks flat rate hours and labour time for automotive technicians, helping monitor productivity and earnings against booked time.</div>
-    <div class="card-link">flat-rate-tracker</div>
+    <div class="card-slug">/flat-rate-tracker/</div>
   </a>
 
-  <a class="card card-gm" href="https://aaronhalstonlee.github.io/gm_sorter/" target="_blank" rel="noopener">
-    <div class="card-icon">🗓️</div>
-    <div class="card-title">GM Class Finder</div>
+  <a class="card" href="https://aaronhalstonlee.github.io/gm_sorter/" target="_blank" rel="noopener">
+    <img class="card-thumb" src="https://image.thum.io/get/width/600/crop/400/https://aaronhalstonlee.github.io/gm_sorter/" alt="GM Sorter screenshot">
+    <div class="card-header">
+      <div class="card-title">GM Sorter</div>
+      <div class="card-arrow">→</div>
+    </div>
     <div class="card-desc">Sorts training schedule data and groups sessions by location into efficient multi-session trips, reducing travel and simplifying planning.</div>
-    <div class="card-link">gm_sorter</div>
+    <div class="card-slug">/gm_sorter/</div>
   </a>
 
 </div>
 
-<footer>aaronhalstonlee.github.io &nbsp;·&nbsp; <a href="https://github.com/aaronhalstonlee" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border);">github.com/aaronhalstonlee</a></footer>
+<footer>
+  aaronhalstonlee.github.io
+  <span>·</span>
+  <a href="https://github.com/aaronhalstonlee" target="_blank" rel="noopener">github.com/aaronhalstonlee</a>
+</footer>
 
 </body>
 </html>
