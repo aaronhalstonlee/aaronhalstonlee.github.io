@@ -123,10 +123,14 @@
   /* GRID */
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     width: 100%;
     max-width: 920px;
+  }
+
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
   }
 
   /* CARD */
@@ -241,7 +245,6 @@
 </nav>
 
 <header>
-  <h1>Aaron Halston Lee</h1>
   <p class="tagline">Building <strong>diagnostic &amp; NVH tools</strong> for the automotive industry — lightweight, mobile-first PWAs.</p>
   <div class="divider"></div>
 </header>
